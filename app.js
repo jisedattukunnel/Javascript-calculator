@@ -3,9 +3,11 @@
 var oldValue
 var newValue
 var op
+var isResult = false;
 
 
 function clearText() {
+    
     document.getElementById('result').value = ''
     document.getElementById('showOperator').innerHTML = ''
 }
@@ -65,6 +67,7 @@ function equal() {
     }
     console.log(result);
     document.getElementById('result').value = result;
+    isResult = true
 }
 
 
