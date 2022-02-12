@@ -4,10 +4,10 @@ var oldValue
 var newValue
 var op
 var isResult = false;
+var isOperatorClicked = false;
 
 
 function clearText() {
-    
     document.getElementById('result').value = ''
     document.getElementById('showOperator').innerHTML = ''
 }
@@ -24,12 +24,13 @@ function moveNumbers1(num) {
 
 
 function operation(operations, operator) {
+    isOperatorClicked = false
     //Get current value in textbox
     oldValue = document.getElementById('result').value;
     console.log("Old Value: "+oldValue);
     //oldValue = Old
 
-    //operator
+    //Get operator
     var txt = document.getElementById("showOperator").innerHTML;
     txt = txt + operator;
     document.getElementById("showOperator").innerHTML = txt;
@@ -45,12 +46,8 @@ function operation(operations, operator) {
 function equal() {
     newValue = document.getElementById('result').value;
     console.log("New Value: "+newValue);
-    //newValue = New
-    console.log(newValue);
-    console.log(op);
-    console.log(oldValue);
-    Old = parseInt(oldValue)
-    New = parseInt(newValue)
+    Old = parseFloat(oldValue)
+    New = parseFloat(newValue)
 
     if (op == 'add'){
         result = Old + New;
@@ -61,7 +58,6 @@ function equal() {
     else if(op == 'star'){
         result = Old * New;
     }
-    
     else{
         result = Old/New
     }
@@ -70,8 +66,3 @@ function equal() {
     isResult = true
 }
 
-
-function addition(first, second) {
-    sum = first + second;
-    console.log(sum);
-}
